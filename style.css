@@ -1,0 +1,208 @@
+/* ============================================
+   Reset básico
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #ebebeb;
+    color: #333333;
+    line-height: 1.5;
+}
+ 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+ 
+/* ============================================
+   Header: fundo azul claro, texto preto
+============================================ */
+header {
+    background-color: #5fa8f5;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+ 
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+ 
+.menu a {
+    color: #000000;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+ 
+.menu a:hover,
+.menu a:focus-visible {
+    border-bottom-color: #000000;
+}
+ 
+.search {
+    flex: 1;
+    max-width: 480px;
+}
+ 
+.search form {
+    display: flex;
+}
+ 
+.search input {
+    flex: 1;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #000000;
+}
+ 
+.search input:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: -3px;
+}
+ 
+.search button {
+    background-color: #000000;
+    color: #ffe600;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+ 
+.search button:hover,
+.search button:focus-visible {
+    background-color: #222222;
+}
+ 
+/* ============================================
+   Conteúdo principal
+============================================ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+}
+ 
+main > h1 {
+    font-size: 26px;
+    color: #222222;
+    margin-bottom: 24px;
+}
+
+/* Estilo para demarcar cada item na listagem */
+.container {
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+ 
+/* ============================================
+   Grade de produtos (estilo cartão ML)
+============================================ */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+ 
+.product {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+ 
+.product:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+ 
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+ 
+.product h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 6px;
+}
+ 
+.product p {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+ 
+.product .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #00a650;
+    margin-bottom: 0;
+}
+ 
+/* ============================================
+   Responsivo
+============================================ */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+ 
+    .menu ul {
+        justify-content: center;
+        gap: 16px;
+    }
+ 
+    .search {
+        max-width: none;
+    }
+}
+ 
