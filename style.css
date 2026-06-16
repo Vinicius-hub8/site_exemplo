@@ -268,8 +268,14 @@ main > h1 {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.45);
     z-index: 40;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
- 
+
+.cart-overlay.is-open {
+    opacity: 1;
+}
+
 .cart-overlay[hidden] {
     display: none;
 }
@@ -286,8 +292,14 @@ main > h1 {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
 }
- 
+
+.cart-drawer.is-open {
+    transform: translateX(0);
+}
+
 .cart-drawer[hidden] {
     display: none;
 }

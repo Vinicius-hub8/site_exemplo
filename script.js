@@ -148,14 +148,29 @@ function renderCart() {
 }
  
 function openCart() {
-    cartDrawer.hidden = false;
     cartOverlay.hidden = false;
+    cartDrawer.hidden = false;
+ 
+    // força o navegador a recalcular o layout antes de adicionar a classe,
+    // para garantir que a transição de entrada seja realmente animada
+    void cartDrawer.offsetWidth;
+ 
+    cartOverlay.classList.add('is-open');
+    cartDrawer.classList.add('is-open');
 }
  
 function closeCart() {
-    cartDrawer.hidden = true;
-    cartOverlay.hidden = true;
+    cartOverlay.classList.remove('is-open');
+    cartDrawer.classList.remove('is-open');
 }
+ 
+// só esconde de fato (hidden) depois que a animação de saída termina
+cartDrawer.addEventListener('transitionend', (event) => {
+    if (event.propertyName === 'transform' && !cartDrawer.classList.contains('is-open')) {
+        cartDrawer.hidden = true;
+        cartOverlay.hidden = true;
+    }
+});
  
 productList.addEventListener('click', (event) => {
     const button = event.target.closest('.add-to-cart');
