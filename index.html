@@ -23,59 +23,91 @@
                 <button type="submit">Buscar</button>
             </form>
         </section>
+        <button type="button" class="cart-toggle" id="cart-toggle" aria-haspopup="dialog" aria-controls="cart-drawer">
+            <span aria-hidden="true">🛒</span>
+            <span>Carrinho</span>
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
     </header>
     <main>
         <h1>Nossos produtos</h1>
-        <div class="product-list">
-            <article class="product">
+        <div class="product-list" id="product-list">
+            <article class="product" data-id="1" data-name="Nome do produto 1" data-price="99.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 1" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 1</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 99,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-            <article class="product">
+            <article class="product" data-id="2" data-name="Nome do produto 2" data-price="129.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 2" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 2</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 129,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-            <article class="product">
+            <article class="product" data-id="3" data-name="Nome do produto 3" data-price="79.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 3" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 3</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 79,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-            <article class="product">
+            <article class="product" data-id="4" data-name="Nome do produto 4" data-price="149.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 4" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 4</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 149,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-            <article class="product">
+            <article class="product" data-id="5" data-name="Nome do produto 5" data-price="199.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 5" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 5</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 199,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-            <article class="product">
+            <article class="product" data-id="6" data-name="Nome do produto 6" data-price="89.90">
                 <img src="https://placehold.co/600x400" alt="Foto do produto 6" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 6</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 89,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-                        <article class="product">
-                <img src="https://placehold.co/600x400" alt="Foto do produto 6" width="600" height="400" loading="lazy">
+            <article class="product" data-id="7" data-name="Nome do produto 7" data-price="89.90">
+                <img src="https://placehold.co/600x400" alt="Foto do produto 7" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 7</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 89,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
-                        <article class="product">
-                <img src="https://placehold.co/600x400" alt="Foto do produto 6" width="600" height="400" loading="lazy">
+            <article class="product" data-id="8" data-name="Nome do produto 8" data-price="89.90">
+                <img src="https://placehold.co/600x400" alt="Foto do produto 8" width="600" height="400" loading="lazy">
                 <h2>Nome do produto 8</h2>
                 <p>Esta é uma descrição detalhada do produto em questão.</p>
                 <p class="price"><span class="visually-hidden">Preço: </span>R$ 89,90</p>
+                <button type="button" class="add-to-cart">Adicionar ao carrinho</button>
             </article>
+        </div>
 
+        <nav class="pagination" id="pagination" aria-label="Paginação de produtos"></nav>
     </main>
+
+    <div class="cart-overlay" id="cart-overlay" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrinho de compras" hidden>
+        <div class="cart-drawer__header">
+            <h2>Seu carrinho</h2>
+            <button type="button" class="cart-close" id="cart-close" aria-label="Fechar carrinho">×</button>
+        </div>
+        <ul class="cart-items" id="cart-items"></ul>
+        <p class="cart-empty" id="cart-empty">Seu carrinho está vazio.</p>
+        <div class="cart-summary">
+            <span>Total</span>
+            <strong id="cart-total">R$ 0,00</strong>
+        </div>
+        <button type="button" class="cart-checkout" id="cart-checkout">Finalizar compra</button>
+    </aside>
+
+    <script src="script.js"></script>
 </body>
 </html>
